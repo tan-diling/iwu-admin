@@ -175,7 +175,7 @@ const TableList = () => {
             const success = await complaintFeedback({ id, status: 1, ...value });
             if (success) {
               handleFeedbackVisible(false);
-              message.error('举报反馈成功');
+              message.success('举报反馈成功');
               if (actionRef.current) {
                 actionRef.current.reload();
               }

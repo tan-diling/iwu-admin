@@ -303,7 +303,6 @@ const UserDataEntry = () => {
               fieldProps={{
                 showCount: {
                   formatter: ({ count }) => `${count}/100`,
-                  min: 10,
                   maxLength: 100,
                 },
               }}
@@ -312,8 +311,7 @@ const UserDataEntry = () => {
                   required: true,
                   message: '请填写',
                 },
-                { max: 100, type: 'string', message: '请输入10~100字内' },
-                { min: 10, type: 'string', message: '请输入10~100字内' },
+                { max: 100, type: 'string', message: '请输入100字内' },
               ]}
             />
           </Card>

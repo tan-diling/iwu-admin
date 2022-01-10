@@ -332,15 +332,14 @@ const UpdateModal = (props) => {
         <TabPane tab="兴趣爱好" key="4">
           <ProFormTextArea
             name="interest"
-            label="兴趣爱好（10~100字内）"
+            label="兴趣爱好（100字内）"
             initialValue={values.interest}
             rules={[
               {
                 required: true,
                 message: '请填写',
               },
-              { max: 100, type: 'string', message: '请输入10~100字内' },
-              { min: 10, type: 'string', message: '请输入10~100字内' },
+              { max: 100, type: 'string', message: '请输入100字内' },
             ]}
           />
         </TabPane>
