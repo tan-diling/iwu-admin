@@ -307,11 +307,11 @@ const UserDataEntry = () => {
                 },
               }}
               rules={[
-                {
-                  required: true,
-                  message: '请填写',
-                },
-                { max: 100, type: 'string', message: '请输入100字内' },
+                // {
+                //   required: true,
+                //   message: '请填写',
+                // },
+                { max: 100, type: 'string', message: '请输入0~100字内' },
               ]}
             />
           </Card>

@@ -22,10 +22,15 @@ const UpdateModal = (props) => {
     values: { contact = {}, photo = [] },
   } = props;
   const [fileList, setFileList] = useState([]);
+  const [defaultFileList, setDefaultFileList] = useState([]);
 
   useEffect(() => {
-    if (photo.length)
+    if (photo.length) {
       setFileList(photo.map((item) => ({ uid: item, name: item, status: 'done', url: item })));
+      setDefaultFileList(
+        photo.map((item) => ({ uid: item, name: item, status: 'done', url: item })),
+      );
+    }
   }, [photo]);
 
   const getValueEnum = (option) => {
@@ -332,14 +337,14 @@ const UpdateModal = (props) => {
         <TabPane tab="兴趣爱好" key="4">
           <ProFormTextArea
             name="interest"
-            label="兴趣爱好（100字内）"
+            label="兴趣爱好（0~100字内）"
             initialValue={values.interest}
             rules={[
-              {
-                required: true,
-                message: '请填写',
-              },
-              { max: 100, type: 'string', message: '请输入100字内' },
+              // {
+              //   required: true,
+              //   message: '请填写',
+              // },
+              { max: 100, type: 'string', message: '请输入0~100字内' },
             ]}
           />
         </TabPane>
@@ -354,6 +359,7 @@ const UpdateModal = (props) => {
               headers: { Authorization: `Bearer ${getToken()}` },
             }}
             action="/api/image/upload"
+            initialValue={defaultFileList}
             fileList={fileList}
             onChange={handleChangeFileList}
             rules={[

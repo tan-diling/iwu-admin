@@ -44,10 +44,10 @@ const TableList = () => {
 
   const columns = [
     {
-      title: '举报人：头像/等级/昵称/ID/性别',
+      title: '举报人',
       dataIndex: 'informer_profile',
       render: (val) => {
-        const { photo, name, id, vip, sex } = val;
+        const { photo, name, id, vip, sex, contact } = val;
         return (
           <div className={styles.nameWrapper}>
             <div className={styles.avatarWrapper}>
@@ -65,7 +65,7 @@ const TableList = () => {
                 <div className={styles.name}>{name}</div>
               </div>
 
-              <div className={styles.userId}>{id}</div>
+              <div className={styles.userId}>{contact?.phone}</div>
             </div>
           </div>
         );
@@ -80,10 +80,10 @@ const TableList = () => {
       },
     },
     {
-      title: '被举报人：头像/等级/昵称/ID/性别',
+      title: '被举报人',
       dataIndex: 'source_profile',
       render: (val) => {
-        const { photo, name, id, vip, sex } = val;
+        const { photo, name, id, vip, sex, contact } = val;
         return (
           <div className={styles.nameWrapper}>
             <div className={styles.avatarWrapper}>
@@ -101,7 +101,7 @@ const TableList = () => {
                 <div className={styles.name}>{name}</div>
               </div>
 
-              <div className={styles.userId}>{id}</div>
+              <div className={styles.userId}>{contact?.phone}</div>
             </div>
           </div>
         );
