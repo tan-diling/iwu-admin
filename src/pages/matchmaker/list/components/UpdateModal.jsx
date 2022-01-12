@@ -17,9 +17,11 @@ const UpdateModal = (props) => {
     values: { photo = '' },
   } = props;
   const [fileList, setFileList] = useState([]);
+  const [defaultFileList, setDefaultFileList] = useState([]);
 
   useEffect(() => {
     setFileList(photo ? [{ uid: photo, name: photo, status: 'done', url: photo }] : []);
+    setDefaultFileList(photo.map((item) => ({ uid: item, name: item, status: 'done', url: item })));
   }, [photo]);
 
   const getValueEnum = (option) => {
@@ -98,6 +100,7 @@ const UpdateModal = (props) => {
             }}
             action="/api/image/upload"
             fileList={fileList}
+            initialValue={defaultFileList}
             onChange={handleChangeFileList}
             rules={[
               {

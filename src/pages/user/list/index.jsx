@@ -188,7 +188,7 @@ const TableList = () => {
       dataIndex: 'option',
       valueType: 'option',
       render: (_, record) => {
-        const { status } = record;
+        const { locked } = record;
         return [
           <a
             key="view"
@@ -209,7 +209,7 @@ const TableList = () => {
             编辑
           </a>,
           ...[
-            status === 4 ? (
+            !!locked ? (
               <Popconfirm
                 key="unlock"
                 placement="top"
@@ -270,7 +270,7 @@ const TableList = () => {
           //   },
           // }}
           rowSelection={false}
-          rowClassName={(record) => (record.status === 4 ? styles.beBlocked : null)}
+          rowClassName={(record) => (!!record.locked ? styles.beBlocked : null)}
         />
       </div>
 
@@ -279,6 +279,10 @@ const TableList = () => {
         width="400px"
         visible={lockModalVisible}
         onVisibleChange={handleLockVisible}
+        modalProps={{
+          destroyOnClose: true,
+          preserve: false,
+        }}
         onFinish={async (value) => {
           const { id } = currentRow;
           try {
