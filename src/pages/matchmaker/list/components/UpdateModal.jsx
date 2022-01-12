@@ -21,7 +21,7 @@ const UpdateModal = (props) => {
 
   useEffect(() => {
     setFileList(photo ? [{ uid: photo, name: photo, status: 'done', url: photo }] : []);
-    setDefaultFileList(photo.map((item) => ({ uid: item, name: item, status: 'done', url: item })));
+    setDefaultFileList(photo ? [{ uid: photo, name: photo, status: 'done', url: photo }] : []);
   }, [photo]);
 
   const getValueEnum = (option) => {
