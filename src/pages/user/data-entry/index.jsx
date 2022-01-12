@@ -116,6 +116,7 @@ const UserDataEntry = () => {
       isPublished: true,
       createSource: 'input',
       ...houseAndCar[value.houseAndCar],
+      interest: value.interest || '',
     };
     console.log('submitData', submitData);
     try {
