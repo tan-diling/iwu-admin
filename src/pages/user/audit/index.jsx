@@ -43,7 +43,6 @@ const TableList = () => {
 
   const getList = async (params, sort, filter) => {
     const { current, pageSize } = params;
-    console.log('params', params);
     const { code, data } = await getUserList({ page: current, limit: pageSize, ...filters });
     if (code !== 200) return { success: false, data: [] };
     const { docs, page, limit, totalDocs } = data;

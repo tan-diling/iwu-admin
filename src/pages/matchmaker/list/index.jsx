@@ -28,7 +28,6 @@ const TableList = () => {
 
   const getList = async (params, sort, filter) => {
     const { current, pageSize } = params;
-    console.log('params', params);
     const { code, data } = await getMatchmakerList({ page: current, limit: pageSize, ...filters });
     if (code !== 200) return { success: false, data: [] };
     const { docs, page, limit, totalDocs } = data;
@@ -36,8 +35,6 @@ const TableList = () => {
   };
 
   const handleSearch = (values) => {
-    console.log('values', values);
-
     setFilters({ ...values });
     actionRef.current.reload();
   };

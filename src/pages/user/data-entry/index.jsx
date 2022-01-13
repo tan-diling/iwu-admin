@@ -61,7 +61,6 @@ const UserDataEntry = () => {
 
   const showError = Debounce((file) => {
     if (file.status === 'error') {
-      console.log('file', file);
       message.error(`上传失败，请稍后再试！error: ${file?.response?.message}`);
     }
   }, 300);
@@ -72,7 +71,6 @@ const UserDataEntry = () => {
   };
 
   const handleSubmit = async (value) => {
-    console.log('value', value);
     const photoList = fileList
       .filter((item) => item.status === 'done')
       .map((item) => {
@@ -118,7 +116,6 @@ const UserDataEntry = () => {
       ...houseAndCar[value.houseAndCar],
       interest: value.interest || '',
     };
-    console.log('submitData', submitData);
     try {
       const res = await addUser(submitData);
       if (res && res.code === 200) {

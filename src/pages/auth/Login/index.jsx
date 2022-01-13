@@ -63,9 +63,7 @@ const Login = () => {
         });
         message.success(defaultLoginSuccessMessage);
         const { accessToken, refreshToken } = data;
-        console.log('login data', data);
         setToken({ accessToken, refreshToken });
-        console.log('history', history);
         // await fetchUserInfo();
         if (!history) return;
         const { query } = history.location;
@@ -74,7 +72,6 @@ const Login = () => {
         return;
       }
     } catch (error) {
-      console.log('error', error);
       const defaultLoginFailureMessage = intl.formatMessage({
         id: 'pages.login.failure',
         defaultMessage: '登录失败，请重试！',
